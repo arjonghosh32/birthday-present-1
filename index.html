@@ -271,12 +271,16 @@
         boxmail.classList.remove('active')
     })
 
+const music = document.getElementById("bgMusic");
 
-    const music = document.getElementById("bgMusic");
+function startMusic() {
+    music.play().catch(() => {});
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+}
 
-document.addEventListener("click", function () {
-    music.play();
-}, { once: true });
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+
 </script>
-
 </html>
